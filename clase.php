@@ -11,6 +11,7 @@
 * 	Dados dous números indicar cal é o maior
 * 	Resolver unha ecuación de primeiro grao do tipo ax+b=0
 * 	Dado un ano saber se é bisesto ou non
+*	Comentario engadido para commit 1.0.1
 *
 * @package	unidade6
 * @license 	https://creativecommons.org/licenses/by-sa/4.0/legalcode Creative Commons 4.0 Attributioin ShareAlike
