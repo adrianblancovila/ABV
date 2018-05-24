@@ -1,0 +1,65 @@
+<?php
+/**
+* Ficheiro que contén o HTML pra tarefa da unidade 6
+*
+* Segundo o enunciado da tarefa dende este ficheiro crearemos a clase do ficheiro clase.php
+* Tamén chamaremos ós métodos públicos de dita clase pra resolverolver os puntos
+*
+* @package	unidade6
+* @license 	https://creativecommons.org/licenses/by-sa/4.0/legalcode Creative Commons 4.0 Attributioin ShareAlike
+* @autor	Adrián Blanco Vila
+* @version 	0.1
+*/
+ 
+?>
+
+<html>
+<head>
+<title>Unidade 6</title>
+</head>
+<body>
+<h1>Unidade 6</h1>
+
+<?php
+
+include('clase.php');
+
+$miejercicio = new Unidade6();
+
+
+//punto 1 palíndromo
+if ($miejercicio->palindromo("ABC123")) {
+    print('<p>"ABC123" es un palíndromo</p>');
+} else {
+    print('<p>"ABC123" no es un palíndromo</p>');
+}
+
+//punto 2 primo
+if ($miejercicio->primo(7)) {
+    print('<p>7 es un número primo</p>');
+} else {
+    print('<p>7 no es un número primo</p>');
+}
+
+//punto 3 é mayor
+if ($miejercicio->esmayor(5,6)) {
+    print('<p>5 es mayor que 6</p>');
+} else {
+    print('<p>5 no es mayor que 6</p>');
+}
+
+//punto 4 ecuación
+print('<p>El resultado de la ecuación 5x + 1 = 0 es: '.$miejercicio->ecuacionaxb0(5,1).'</p>');
+
+
+//punto 5 bisiesto
+if ($miejercicio->esBisiesto("now")) {
+    print('<p>El año actual es bisiesto</p>');
+} else {
+    print('<p>El año actual no es bisiesto</p>');
+}
+
+
+?>
+</body>
+</html>

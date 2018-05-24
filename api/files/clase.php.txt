@@ -1,0 +1,185 @@
+<?php
+/**
+* Ficheiro que contén a clase Unidade6 cás funcións necesarias pra tarefa
+*
+* Este ficheiro debe ser incluido dende index.php pra resolución da tarefa.
+* Segundo o enunciado da tarefa temos unha variable pública, unha privada, unha constante
+* e os getters e setters precisos. 
+* Tamén as métodos publicos necesarias pra resolver:
+* 	Averiguar se unha palabra é un palíndromo
+* 	Averiguar se un número dado é primo
+* 	Dados dous números indicar cal é o maior
+* 	Resolver unha ecuación de primeiro grao do tipo ax+b=0
+* 	Dado un ano saber se é bisesto ou non
+*
+* @package	unidade6
+* @license 	https://creativecommons.org/licenses/by-sa/4.0/legalcode Creative Commons 4.0 Attributioin ShareAlike
+* @autor	Adrián Blanco Vila
+* @version 	0.1
+*/
+ 
+ 
+
+ /**
+ * Clase Unidade6
+ *
+ * @package unidade6
+ * @license https://creativecommons.org/licenses/by-sa/4.0/legalcode Creative Commons 4.0 Attributioin ShareAlike
+ * @author Adrián Blanco Vila
+ * @version Version 0.6.4
+ * @property double $vPrivada Variable privada
+ */  
+class Unidade6 {
+
+    /**
+	* Variable pública
+	* @var string
+	* @access public
+	*/
+    public $vPublica;
+	
+    /**
+	* Variable privada
+	* @var string
+	* @access public
+	*/	
+    private $vPrivada;
+	
+    /**
+	* @var double Almacena o valor matemático pi
+	*/
+	const PI = 3.14159265;
+	
+	 /**
+	 * Getter da propiedade vPrivada
+	 *
+	 * @return double
+	 */
+	 public function getvPrivada(){
+		return $this->$vPrivada;
+	 }
+
+	 /**
+	 * Setter da propiedade vPrivada
+	 *
+	 * @param double
+	 * @return void
+	 */
+	 public function setvPrivada($variable){
+		$this->vPrivada = $variable;
+	 }
+
+    /**
+     * Inicializa o valor das variables a 0
+	 *
+	 * @return void
+     */
+    function __construct() {
+        $this->vPublica = $this->vPrivada = 0;
+    }
+
+	/**
+	* Verifica se unha cadea é un palíndromo ou non
+	*
+	* @access public
+	* @return boolean true se é un palíndromo
+	* @param string $cadea cade a comprobar
+	*/
+	public function palindromo($cadea)
+	{
+		$separar = explode(" ", strtolower($cadea));
+		
+		$novo = "";
+		foreach($separar as $palabra)
+		{
+			trim($palabra);
+			$novo .= $palabra; 
+		}
+		
+		if($novo == strrev($novo))
+		{
+			return true;
+		}
+		else {
+			return false;
+		}
+	}  
+
+	 
+	/**
+	* Determina se un numero é primo
+	*
+	* @access public
+	* @return boolean true se é primo
+	* @param int $num número a comprobar
+	*/	 
+	public function primo($num)
+	{
+		$cont=0;
+		// Percorre todoslos números dende el 2 ata o valor recibido
+		for($i=2;$i<=$num;$i++)
+		{
+			if($num%$i==0)
+			{
+				# Se se poede dividir por algun numero máis de unha vez, no es primo
+				if(++$cont>1)
+					return false;
+			}
+		}
+		return true;
+	}
+	
+	
+	/**
+	 * Función que determina se un numero é maior ca outro
+	 * 
+	 * @access public
+	 * @param int $num1 número a comprobar se é maior
+	 * @param int $num2 número a comprobar se é menor
+	 * @return boolean true se $num1 é maior
+	 */
+	public function esmayor($num1,$num2)
+	{
+		if($num1 > $num2)
+		{
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	 
+	/**
+	 * Función que resolve unha ecuación de primero grao ax + b=0
+	 * 
+	 * @access public
+	 * @param int $a numero a da ecuación ax + b=0
+	 * @param int $b numero b da ecuación ax + b=0
+	 * @return double resultado da ecuación
+	 */	 
+	public function ecuacionaxb0($a,$b)
+	{
+
+		if($a != 0)
+		{
+			return -$b / $a;
+		}
+		else{
+			return 0;
+		}
+	}	
+	 
+	/**
+	 * Función que averigua se un ano é bisiesto
+	 * 
+	 * @access public
+	 * @param datetime $date data a comprobar
+	 * @return int 1 se o ano é bisiesto,0 en caso contrario
+	 */		 
+	public function esBisiesto($date)
+	{
+		return date('L', strtotime($date));
+	}	
+}
+
+
